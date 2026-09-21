@@ -14,7 +14,7 @@ Fleet Manager demonstrates how a centralized platform can manage multiple compan
 
 A 1 minute 50 second walkthrough showcasing the Fleet Manager application.
 
-**Demo video:** Coming soon
+**Demo video:** [Watch Fleet Manager Demo](https://www.youtube.com/watch?v=Buat7V-SND8)
 
 ---
 
