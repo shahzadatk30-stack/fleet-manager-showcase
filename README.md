@@ -1,6 +1,10 @@
 # Fleet Manager
 
-### Multi-Company Fleet & Rental Management Platform
+### Multi-Company Fleet, Rental & Business Management Platform
+
+A production-oriented Flutter application designed to manage vehicles, rentals, financial records, vendors, payments and operational reporting across multiple company environments.
+
+**Built with Flutter + Firebase | Role-Based Access | Multi-Company Architecture | Secure Company Isolation**
 
 A working reference implementation of a **multi-tenant SaaS architecture built with Flutter and Firebase**.
 
@@ -53,6 +57,43 @@ Each company can operate through its own Firebase environment containing:
 - Business operations
 
 ---
+
+## Architecture Overview
+
+```mermaid
+flowchart TB
+    U[Users] --> A[Fleet Manager Flutter App]
+
+    A --> S[Super Admin]
+    A --> C[Company Selection]
+    C --> L[Company Login]
+
+    S --> P[Central Platform Firebase]
+    P --> D[Company Directory & Configuration]
+
+    L --> E[Selected Company Firebase]
+    E --> F[Company Data]
+    E --> AU[Company Authentication]
+
+    F --> CAR[Cars & Fleet]
+    F --> REN[Rentals]
+    F --> FIN[Income & Expenses]
+    F --> VEN[Vendors & Bills]
+    F --> REP[Reports]
+```
+
+## User Roles
+
+Fleet Manager uses role-based access to separate platform administration, company management and daily operational workflows.
+
+| Role | Responsibilities |
+|---|---|
+| **Super Admin** | Manage companies, platform configuration, packages and company-level administration |
+| **Admin** | Manage fleet, rentals, finances, vendors, payments, reports and company users |
+| **Worker** | Access assigned vehicles and operational workflows according to permissions |
+
+Each role operates within the appropriate company environment and access scope.
+
 ## Core Capabilities
 
 ### Multi-Company Management
@@ -116,6 +157,14 @@ Each company can operate through its own Firebase environment containing:
 
 ---
 
+### Vendor Management
+
+Manage vendors, bills, payments and outstanding balances within the selected company environment.
+
+### Help & Support
+
+A centralized support area providing FAQ, application information, Privacy Policy, Terms & Conditions and direct Contact Support options.
+
 ## Technology Stack
 
 | Technology | Purpose |
@@ -129,9 +178,36 @@ Each company can operate through its own Firebase environment containing:
 | PDF generation | Rental and reporting documents |
 
 ---
+
+## Security & Data Architecture
+
+Fleet Manager is structured around company-level isolation and controlled access.
+
+- **Central platform:** Super Admin authentication and company directory/configuration
+- **Company environments:** Separate Firebase environments for company users and operational data
+- **Role-based access:** Access is controlled according to the authenticated user role
+- **Company scoping:** Company data is associated with the active company context
+- **Device security:** Company access can be restricted to the registered device
+- **Local data handling:** Selected operational records can be maintained locally where appropriate to reduce unnecessary cloud usage
+- **Entitlement controls:** Feature availability can be managed according to company plans and permissions
+
+This separation provides a scalable foundation for supporting multiple businesses from a single Flutter application while keeping company environments logically isolated.
+
+## Performance & Data Management
+
+The application is designed with practical Firestore usage and mobile performance in mind.
+
+- Company-specific data access instead of unnecessary cross-company queries
+- Local caching for frequently accessed fleet data
+- Controlled synchronization to reduce repeated reads and writes
+- Reusable application architecture across multiple company environments
+- Composite Firestore indexes for commonly used filtered and sorted queries
+
 ## Screenshots
 
-Elected screens from the Fleet Manager application.
+Selected screens from the Fleet Manager application, covering platform administration, company workflows, fleet operations, financial records, rentals, reporting, vendor management and support.
+
+The screenshots represent the current application UI and selected completed modules.
 
 ### Company Selection
 
@@ -176,12 +252,6 @@ Package and feature configuration for companies.
 Business overview with fleet information and financial summaries.
 
 ![Admin Dashboard](screenshots/admin-dashboard.png)
-
-### Admin Dashboard — Full View
-
-Full dashboard experience showing the wider business overview.
-
-![Admin Dashboard Full View](screenshots/admin-dashboard-full.png)
 
 ### Navigation
 
@@ -278,11 +348,14 @@ The platform follows a reusable business-application architecture:
 10. Cross-platform Flutter foundation
 
 ---
+
 ## Project Status
 
-Fleet Manager is an ongoing working reference implementation used to demonstrate the development of custom Flutter and Firebase business applications.
+**Active Development**
 
-The project continues to evolve as new platform capabilities and business workflows are added.
+Fleet Manager is a working reference implementation focused on demonstrating modern Flutter and Firebase business application development.
+
+The platform continues to evolve as new capabilities, workflows and operational modules are designed, implemented and refined.
 
 ---
 
@@ -290,11 +363,11 @@ The project continues to evolve as new platform capabilities and business workfl
 
 **Fleet Manager**
 
-Smart Fleet & Rental Management
+Smart Fleet, Rental & Business Management
 
-**Designed & Developed by Team Shahzad**
+**Designed & Developed by Shahzad**
 
-Building custom Flutter and Firebase applications around real business workflows.
+A portfolio project focused on building practical Flutter and Firebase applications around real business workflows, with emphasis on scalable architecture, company-level data separation and role-based access.
 
 ---
 
