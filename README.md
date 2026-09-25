@@ -228,6 +228,18 @@ Registered device administration and access control.
 
 ![Device Management](screenshots/device-management.png)
 
+### Vendor Bills & Payments
+Vendor management, bills, payments and outstanding balance tracking.
+
+![Vendor Bills & Payments](screenshots/vendor-bills-payments-1.jpeg)
+
+![Vendor Bills & Payments](screenshots/vendor-bills-payments-2.jpeg)
+
+### Help & Support
+Centralized support area with FAQ, About Fleet Manager, Privacy Policy, Terms & Conditions and Contact Support.
+
+![Help & Support](screenshots/help-and-support.jpeg)
+
 ---
 
 ## Potential Business Applications
